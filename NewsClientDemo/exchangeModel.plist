@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>第四届智能信息视觉青年研讨会</string>
+		<key>time</key>
+		<date>2015-09-15T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>609</integer>
+	</dict>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>阿里巴巴图像搜索团队华先胜博士报告会</string>
+		<key>time</key>
+		<date>2015-09-11T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>577</integer>
+	</dict>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>哈尔滨工业大学高会军教授来校进行学术交流与访问</string>
+		<key>time</key>
+		<date>2015-09-11T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>337</integer>
+	</dict>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>​人脑认知与脑电信号处理青年论坛成功举办</string>
+		<key>time</key>
+		<date>2015-08-16T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>465</integer>
+	</dict>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>欢迎访问《线性代数应用》微课网站－－多位一线教师精彩呈现</string>
+		<key>time</key>
+		<date>2015-08-17T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>572</integer>
+	</dict>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>南洋理工大学兼我校“海外名师”Lin Weisi教授应邀来访</string>
+		<key>time</key>
+		<date>2015-07-27T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>511</integer>
+	</dict>
+	<dict>
+		<key>status</key>
+		<false/>
+		<key>title</key>
+		<string>德国Osnabrueck大学Manfred Ehlers 教授访问我院并进行学术交流</string>
+		<key>time</key>
+		<date>2015-07-09T14:43:44Z</date>
+		<key>viewsCount</key>
+		<integer>563</integer>
+	</dict>
+</array>
+</plist>
