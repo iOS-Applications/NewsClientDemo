@@ -53,31 +53,17 @@
     
         };
     
-    self.sc_navigationItem.leftBarButtonItem = self.leftBarItem;
+//    self.sc_navigationItem.leftBarButtonItem = self.leftBarItem;
     self.sc_navigationItem.title = @"最新资讯";
 
 }
 - (void)loadView{
     [super loadView];
     [self configureTableView];
-    [self configureNavibarItems];
+//    [self configureNavibarItems];
 }
 
-/*!
- *  @author Pasco, 15-09-21 11:09:17
- *
- *  @brief  配置导航栏的左按钮
- *
- *  @since 1.0
- */
-- (void)configureNavibarItems {
-    
-    self.leftBarItem = [[SCBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_menu_2"] style:SCBarButtonItemStylePlain handler:^(id sender) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kShowMenuNotification object:nil];
-    }];
-    
-//    [self.leftBarItem ]
-}
+
 
 //- (void)configureBlocks {
 //    

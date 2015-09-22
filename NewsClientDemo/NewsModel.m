@@ -23,7 +23,7 @@
 - (id)initWithDict:(NSDictionary *)dict{
     self = [super init];
     if (self) {
-        self.status = dict[@"status"];
+        self.status = [dict[@"status"] boolValue];
         self.title = dict[@"title"];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

@@ -204,15 +204,28 @@ static CGFloat const kMenuWidth = 240.0;
     self.networkNavigationController = [[SCNavigationController alloc] initWithRootViewController:self.networkPullRefreshController];
     self.collectionNavigationController = [[SCNavigationController alloc] initWithRootViewController:self.collectionPullRefreshController];
     
+    __weak __typeof__(self)weakSelf = self;
     
-    self.lastestPullRefreshController.leftBarItem.delegate = self;
-    self.alertPullRefreshController.leftBarItem.delegate = self;
-    self.exchangePullRefreshController.leftBarItem.delegate = self;
-    self.undergraduatePullRefreshController.leftBarItem.delegate = self;
-    self.graduatePullRefreshController.leftBarItem.delegate = self;
-    self.researchPullRefreshController.leftBarItem.delegate = self;
-    self.networkPullRefreshController.leftBarItem.delegate = self;
-    self.collectionPullRefreshController.leftBarItem.delegate = self;
+    void (^leftBarButtonBlock)() = ^(){
+        
+        self.rootBackgroundButton.hidden =NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            [self setMenuOffset:240.0];
+        } completion:^(BOOL finished) {
+            
+        }];
+    };
+    
+    weakSelf.lastestPullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.alertPullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.exchangePullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.undergraduatePullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.graduatePullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.researchPullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.networkPullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    weakSelf.collectionPullRefreshController.leftBarButtonBlock = leftBarButtonBlock;
+    
+    
     
     [self.viewControllerContainView addSubview:[self viewControllerForIndex:self.currentSelectedIndex].view];
     
@@ -226,13 +239,21 @@ static CGFloat const kMenuWidth = 240.0;
     [self.viewControllerContainView addSubview:self.rootBackgroundButton];
     
     self.menuView = [[MenuView alloc] initWithFrame:CGRectMake(-kMenuWidth, 0, kMenuWidth, kScreenHeight)];
-    //设置代理（简单代理，以后有机会再优化，估计没机会了）这里好像会循环引用吧！
-    self.menuView.sectionView.delegate = self;
+//#warning 设置代理（简单代理，以后有机会再优化，估计没机会了）这里好像会循环引用吧！
+//    self.menuView.sectionView.delegate = self;
     //设置menu默认选择第一行
     [self.menuView.sectionView.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
     [self.view addSubview:self.menuView];
     
-    //    [sekf.menuView.sectionView ]
+    //点击哪一个分类，显示其中的新闻
+    __weak __typeof__(self) weakSelf = self;
+    [weakSelf.menuView setMenuBlock:^(NSInteger index) {
+        __strong __typeof__(self) strongSelf = weakSelf;
+        [strongSelf showViewControllerAtIndex:index animated:YES];
+    }];
+
+    
+//        [self.menuView.sectionView ]
 }
 
 /*!
@@ -457,19 +478,6 @@ static CGFloat const kMenuWidth = 240.0;
         UIViewController *willShowViewController = [self viewControllerForIndex:index];
         
         if (willShowViewController) {
-            
-            //                BOOL isViewInRootView = NO;
-            //                //从子控件中选出
-            //                for (UIView *subView in self.view.subviews) {
-            //                    if ([subView isEqual:willShowViewController.view]) {
-            //                        isViewInRootView = YES;
-            //                    }
-            //                }
-            //                if (isViewInRootView) {
-            //                    willShowViewController.view.x = 320;
-            //                    //bring Subview to front
-            //                    [self.viewControllerContainView bringSubviewToFront:willShowViewController.view];
-            //                } else {
             [self.viewControllerContainView addSubview:willShowViewController.view];
             willShowViewController.view.x = 320;
             //                }

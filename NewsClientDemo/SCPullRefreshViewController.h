@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SCBarButtonItem;
 
 @interface SCPullRefreshViewController : UIViewController <UIScrollViewDelegate>
 
@@ -17,6 +18,8 @@
 @property (nonatomic, assign) CGFloat tableViewInsertTop;
 @property (nonatomic, assign) CGFloat tableViewInsertBottom;
 
+@property (nonatomic, strong) SCBarButtonItem *leftBarItem;
+
 @property (nonatomic, copy) void (^refreshBlock)();
 
 - (void)beginRefresh;
@@ -26,5 +29,7 @@
 
 - (void)beginLoadMore;
 - (void)endLoadMore;
+
+@property (nonatomic, copy) void (^leftBarButtonBlock)();
 
 @end

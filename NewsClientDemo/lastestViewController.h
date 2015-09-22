@@ -11,6 +11,5 @@
 
 @interface lastestViewController : SCPullRefreshViewController
 
-@property (nonatomic, strong) SCBarButtonItem *leftBarItem;
 
 @end

@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong) MenuSectionView *sectionView;
 
+@property (nonatomic,copy) void (^MenuBlock)(NSInteger index);
+
 @end

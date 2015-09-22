@@ -9,5 +9,4 @@
 #import "SCPullRefreshViewController.h"
 @class SCBarButtonItem;
 @interface researchViewController : SCPullRefreshViewController
-@property (nonatomic,strong) SCBarButtonItem *leftBarItem;
 @end

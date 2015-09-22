@@ -21,7 +21,9 @@ typedef NS_ENUM(NSInteger, SCBarButtonItemStyle) {  // for future use
 
 @property (nonatomic, assign, getter = isEnabled) BOOL enabled;
 
-@property (nonatomic, strong) ViewController *delegate;
+//@property (nonatomic, assign) ViewController *delegate;
+
+@property (nonatomic,copy) void (^leftBarButtonBlock)();
 
 - (instancetype)initWithTitle:(NSString *)title style:(SCBarButtonItemStyle)style handler:(void (^)(id sender))action;
 

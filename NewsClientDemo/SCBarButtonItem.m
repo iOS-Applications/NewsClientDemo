@@ -102,12 +102,9 @@
 
     self.actionBlock(button);
     
-    _delegate.rootBackgroundButton.hidden =NO;
-    [UIView animateWithDuration:0.3 animations:^{
-        [_delegate setMenuOffset:240.0];
-    } completion:^(BOOL finished) {
-        
-    }];
+    if (_leftBarButtonBlock) {
+        _leftBarButtonBlock();
+    }
     
     
     [UIView animateWithDuration:0.2 animations:^{

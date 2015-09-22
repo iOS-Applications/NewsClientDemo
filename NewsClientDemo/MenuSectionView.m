@@ -103,8 +103,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-#warning 可能存在循环应用，回头再看看
-    [_delegate showViewControllerAtIndex:indexPath.row animated:YES];
+//#warning 可能存在循环应用，回头再看看
+//    [_delegate showViewControllerAtIndex:indexPath.row animated:YES];
+    
+    if (self.MenuBlock) {
+        self.MenuBlock(indexPath.row);
+    }
 
 }
 

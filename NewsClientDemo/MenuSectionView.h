@@ -13,7 +13,8 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 
-@property (nonatomic, strong) ViewController *delegate;
+//@property (nonatomic, assign) ViewController *delegate;
 
+@property (nonatomic, copy) void (^MenuBlock)(NSInteger index);
 
 @end

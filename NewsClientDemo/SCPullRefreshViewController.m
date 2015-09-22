@@ -10,6 +10,7 @@
 #import "FrameAccessor.h"
 #import "SCBubbleRefreshView.h"
 #import "SCNavigation.h"
+#import "SCBarButtonItem.h"
 
 #define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
 
@@ -90,6 +91,33 @@ static CGFloat const kRefreshHeight = 44.0f;
     self.loadMoreView.timeOffset = 0.0;
     [self.tableFooterView addSubview:self.loadMoreView];
     
+    //配置导航栏的左按钮
+    [self configureNavibarItems];
+    
+}
+
+/*!
+ *  @author Pasco, 15-09-21 11:09:17
+ *
+ *  @brief  配置导航栏的左按钮
+ *
+ *  @since 1.0
+ */
+- (void)configureNavibarItems {
+    
+    self.leftBarItem = [[SCBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_menu_2"] style:SCBarButtonItemStylePlain handler:^(id sender) {
+        //        [[NSNotificationCenter defaultCenter] postNotificationName:kShowMenuNotification object:nil];
+    }];
+    
+    //    [self.leftBarItem ]
+    __weak __typeof__(self) weakSelf = self;
+    [weakSelf.leftBarItem setLeftBarButtonBlock:^{
+        __strong __typeof__(self) strongSelf = weakSelf;
+        if (strongSelf.leftBarButtonBlock) {
+            strongSelf.leftBarButtonBlock();
+        }
+        
+    }];
 }
 
 #pragma mark - Layout
@@ -116,6 +144,8 @@ static CGFloat const kRefreshHeight = 44.0f;
     [super viewDidLoad];
     //设置tableView到顶部得高度
     self.tableView.contentInsetTop= 44;
+    
+    self.sc_navigationItem.leftBarButtonItem = self.leftBarItem;
     
 }
 

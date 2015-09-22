@@ -50,16 +50,15 @@
      *
      *  @since 1.0
      */
-//    @weakify(self);
-//    __weak __typeof__(self) weakSelf = self;
-//    [weakSelf.sectionView setDidSelectedIndexBlock:^(NSInteger index) {
-//        __strong __typeof__(self) strongSelf = weakSelf;
-//        
-//        if (strongSelf.didSelectedIndexBlock) {
-//            strongSelf.didSelectedIndexBlock(index);
-//        }
-//        
-//    }];
+    __weak __typeof__(self) weakSelf = self;
+    [weakSelf.sectionView setMenuBlock:^(NSInteger index) {
+        __strong __typeof__(self) strongSelf = weakSelf;
+        
+        if (strongSelf.MenuBlock) {
+            strongSelf.MenuBlock(index);
+        }
+    }];
+
 }
 
 - (void)configureShadowsViews{
