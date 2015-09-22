@@ -50,24 +50,24 @@
         
     };
     
-    self.sc_navigationItem.leftBarButtonItem = self.leftBarItem;
+//    self.sc_navigationItem.leftBarButtonItem = self.leftBarItem;
     self.sc_navigationItem.title = @"科研中心";
     
 }
 - (void)loadView{
     [super loadView];
     [self configureTableView];
-    [self configureNavibarItems];
+//    [self configureNavibarItems];
 }
 
-- (void)configureNavibarItems {
-    
-    self.leftBarItem = [[SCBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_menu_2"] style:SCBarButtonItemStylePlain handler:^(id sender) {
-        //        [[NSNotificationCenter defaultCenter] postNotificationName:kShowMenuNotification object:nil];
-    }];
-    
-    //    [self.leftBarItem ]
-}
+//- (void)configureNavibarItems {
+//    
+//    self.leftBarItem = [[SCBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_menu_2"] style:SCBarButtonItemStylePlain handler:^(id sender) {
+//        //        [[NSNotificationCenter defaultCenter] postNotificationName:kShowMenuNotification object:nil];
+//    }];
+//    
+//    //    [self.leftBarItem ]
+//}
 
 - (void)configureBlocks {
     
